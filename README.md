@@ -1,7 +1,7 @@
 # micro-schema
 [![Actions Status](https://github.com/vitalets/micro-schema/workflows/autotests/badge.svg)](https://github.com/vitalets/micro-schema/actions)
-[![npm](https://img.shields.io/npm/v/micro-schema.svg)](https://www.npmjs.com/package/micro-schema)
-[![license](https://img.shields.io/npm/l/micro-schema.svg)](https://www.npmjs.com/package/micro-schema)
+[![npm](https://img.shields.io/npm/v/@vitalets/micro-schema.svg)](https://www.npmjs.com/package/@vitalets/micro-schema)
+[![license](https://img.shields.io/npm/l/@vitalets/micro-schema.svg)](https://www.npmjs.com/package/@vitalets/micro-schema)
 
 Minimal JSON schema validation format.
 
@@ -53,13 +53,13 @@ Validation result:
 
 #### Installation
 ```bash
-npm install micro-schema
+npm install @vitalets/micro-schema
 ```
 
 #### Usage
 1. Require `validate` function:
     ```js
-    const { validate } = require('micro-schema');
+    const { validate } = require('@vitalets/micro-schema');
     ```
 
 2. Define schema:
