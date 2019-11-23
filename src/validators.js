@@ -47,4 +47,21 @@ module.exports = {
       };
     }
   },
+
+  // $item: (strictKeys, value, keys) => {
+  //
+  // },
+
+  $unknownKeys: (unknownKeys, value, { keys }) => {
+    if (!unknownKeys && value && typeof value === 'object') {
+      return Object.keys(value).map(key => {
+        if (!keys.includes(key)) {
+          return {
+            path: [key]
+          };
+        }
+      });
+    }
+  },
+
 };

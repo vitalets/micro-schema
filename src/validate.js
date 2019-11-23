@@ -17,10 +17,12 @@ const validate = (schema, value, path = []) => {
   const errors = [];
 
   // validate value by $keys
+  const meta = {schema, keys, $keys};
   $keys.forEach($key => {
     const validatorFn = validators[$key];
-    const result = validatorFn(schema[$key], value);
-    errors.push(createError($key, path, result));
+    const result = validatorFn(schema[$key], value, meta);
+    const results = Array.isArray(result) ? result : [result];
+    errors.push(...results.map(result => createError($key, path, result)));
   });
 
   // validate all items for array
@@ -53,6 +55,10 @@ const validate = (schema, value, path = []) => {
  */
 const createError = ($key, path, result) => {
   if (result) {
+    if (result.path) {
+      path = path.concat(result.path);
+      delete result.path;
+    }
     return {
       validator: $key,
       path: path.join('.'),
@@ -60,3 +66,4 @@ const createError = ($key, path, result) => {
     };
   }
 };
+
