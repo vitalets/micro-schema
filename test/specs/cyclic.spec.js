@@ -1,14 +1,14 @@
-describe.skip('cyclic', () => {
+describe('cyclic object', () => {
 
-  it('throw on cyclic refs', async () => {
+  it('work well on cyclic refs', async () => {
     const schema = {
       prop: {
-        $type: 'number',
+        $type: 'object',
       }
     };
     const obj = { foo: 42 };
     obj.prop = obj;
-    validate(schema, obj);
+    assert.deepStrictEqual(validate(schema, obj), []);
   });
 
 });
