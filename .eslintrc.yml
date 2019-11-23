@@ -11,7 +11,7 @@ env:
   es6: true
 
 rules:
-  complexity: [error, max: 5]
+  complexity: [error, max: 6]
   max-depth: [error, max: 2]
   max-nested-callbacks: [error, max: 2]
   max-params: [error, max: 3]
@@ -20,3 +20,4 @@ rules:
   max-lines: [error, {max: 200, skipComments: true, skipBlankLines: true}]
   semi: [error, always]
   space-before-function-paren: [error, {anonymous: always, named: never, asyncArrow: always}]
+  no-prototype-builtins: 0
