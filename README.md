@@ -9,8 +9,13 @@ Minimal JSON schema validation format.
 
 <!-- toc -->
 
-- [Installation](#installation)
-- [Usage](#usage)
+- [Motivation](#motivation)
+- [Example](#example)
+- [Keywords](#keywords)
+- [Implementations](#implementations)
+  * [Javascript](#javascript)
+    + [Installation](#installation)
+    + [Usage](#usage)
 - [License](#license)
 
 <!-- tocstop -->
