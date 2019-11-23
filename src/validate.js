@@ -66,4 +66,3 @@ const createError = ($key, path, result) => {
     };
   }
 };
-
