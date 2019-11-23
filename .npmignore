@@ -1,4 +1,5 @@
 .idea
 .editorconfig
+.github
 *.yml
 test/*
