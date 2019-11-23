@@ -1,0 +1,52 @@
+{
+  "name": "micro-schema",
+  "version": "0.1.0",
+  "description": "Minimal JSON schema validation format",
+  "author": {
+    "name": "Vitaliy Potapov",
+    "email": "noginsk@rambler.ru"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/vitalets/micro-schema.git"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint src test",
+    "test": "mocha test/setup test/*.spec.js",
+    "ci": "npm run lint && npm test",
+    "toc": "markdown-toc README.md -i",
+    "prerelease": "npm run lint && npm test",
+    "release": "npm version $VER && npm publish",
+    "postrelease": "git push --follow-tags --no-verify",
+    "release-patch": "VER=patch npm run release",
+    "release-minor": "VER=minor npm run release"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test",
+      "pre-push": "npm run lint && npm test"
+    }
+  },
+  "lint-staged": {
+    "{src,test}/**/*.js": "eslint"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.6.0",
+    "eslint-plugin-mocha": "^6.2.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.2",
+    "markdown-toc": "^1.2.0",
+    "mocha": "^6.2.2"
+  },
+  "keywords": [
+    "json",
+    "schema",
+    "validator"
+  ],
+  "license": "MIT"
+}
