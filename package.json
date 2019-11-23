@@ -17,7 +17,6 @@
   "scripts": {
     "lint": "eslint src test",
     "test": "mocha test/setup test/specs",
-    "ci": "npm run lint && npm test",
     "toc": "markdown-toc README.md -i",
     "prerelease": "npm run lint && npm test",
     "release": "npm version $VER && npm publish",
