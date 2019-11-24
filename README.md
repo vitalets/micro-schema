@@ -11,7 +11,18 @@ Minimal JSON schema validation format.
 
 - [Motivation](#motivation)
 - [Example](#example)
-- [Keywords](#keywords)
+- [Validators](#validators)
+    + [$type](#type)
+    + [$required](#required)
+    + [$maxLength](#maxlength)
+    + [$minLength](#minlength)
+    + [$values](#values)
+    + [$unknownKeys](#unknownkeys)
+    + [$item](#item)
+- [Shortcuts](#shortcuts)
+    + [primitive](#primitive)
+    + [array](#array)
+- [Custom validators](#custom-validators)
 - [Implementations](#implementations)
   * [Javascript](#javascript)
     + [Installation](#installation)
@@ -28,24 +39,77 @@ Instead, I tried to create a very simple format for the most common cases.
 ## Example
 Schema:
 ```json
-
+{
+  "productId": {
+    "$type": "number",
+    "$required": true
+  },
+  "productName": {
+    "$type": "string",
+    "$required": true,
+    "$maxLength": 255
+  },
+  "tags": [{
+      "$type": "string"
+  }]
+}
 ```
 Valid object:
 ```json
-
+{
+  "productId": 1,
+  "productName": "iphone 11",
+  "tags": [ "mobile", "phone" ]
+}
 ```
 
 Invalid object:
 ```json
-
+{
+  "productId": "1",
+  "productName": null,
+  "tags": [ 42 ]
+}
 ```
 
-Validation result:
+Validation output:
 ```json
-
+[
+  {
+    "validator": "$type",
+    "path": "productId",
+    "expectedType": "number",
+    "actualType": "string"
+  },
+  {
+    "validator": "$required",
+    "path": "productName"
+  },
+  {
+    "validator": "$type",
+    "path": "tags.0",
+    "expectedType": "string",
+    "actualType": "number"
+  }
+]
 ```
 
-## Keywords
+## Validators
+tbd.
+
+#### $type
+#### $required
+#### $maxLength
+#### $minLength
+#### $values
+#### $unknownKeys
+#### $item
+
+## Shortcuts
+#### primitive
+#### array
+
+## Custom validators
 
 ## Implementations
 
@@ -84,7 +148,7 @@ npm install @vitalets/micro-schema
     ```js
     const object = {
       productId: 1,
-      productName: 'IPhone 11',
+      productName: 'iphone 11',
       tags: ['mobile', 'phone']
     };
     
