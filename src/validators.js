@@ -35,6 +35,15 @@ module.exports = {
     }
   },
 
+  $minLength: (minLength, value) => {
+    if (value && value.length < minLength) {
+      return {
+        length: value.length,
+        minLength,
+      };
+    }
+  },
+
   $values: (values, value) => {
     if (value === undefined || value === null) {
       return;
