@@ -1,7 +1,7 @@
 {
   "name": "@vitalets/micro-schema",
   "version": "0.1.2",
-  "description": "Minimal JSON schema validation format",
+  "description": "JavaScript implementation of json-micro-schema validation format",
   "author": {
     "name": "Vitaliy Potapov",
     "email": "noginsk@rambler.ru"
