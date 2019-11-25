@@ -35,6 +35,27 @@ describe('compile', () => {
     });
   });
 
+  it('expand array type if there is $item', async () => {
+    const schema = {
+      prop: {
+        $item: {
+          $required: false
+        }
+      }
+    };
+    validate(schema, {});
+    assert.deepEqual(schema, {
+      $compiled: true,
+      $type: 'object',
+      prop: {
+        $type: 'array',
+        $item: {
+          $required: false
+        }
+      }
+    });
+  });
+
   it('compile primitive', async () => {
     const schema = {
       prop: 42

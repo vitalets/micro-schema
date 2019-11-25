@@ -35,7 +35,7 @@ exports.getKeys = schema => getKeys(schema);
 const compile = (schema, $defaults = {}) => {
   const {keys} = getKeys(schema);
 
-  setTypeForObjectSchema(schema, keys);
+  expandImplicitTypes(schema, keys);
   expandPrimitiveKeys(schema, keys);
   expandArrayKeys(schema, keys);
 
@@ -80,9 +80,14 @@ const assertValidatorKeys = schema => {
   });
 };
 
-const setTypeForObjectSchema = (schema, keys) => {
-  if (!schema.$type && keys.length > 0) {
+const expandImplicitTypes = (schema, keys) => {
+  if (schema.$type) {
+    return;
+  }
+  if (keys.length > 0) {
     schema.$type = 'object';
+  } else if (schema.$item) {
+    schema.$type = 'array';
   }
 };
 
