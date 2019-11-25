@@ -11,6 +11,7 @@ JavaScript implementation of [JSON micro schema](https://github.com/vitalets/jso
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Docs](#docs)
 - [License](#license)
 
 <!-- tocstop -->
@@ -76,6 +77,9 @@ npm install @vitalets/micro-schema
       }
     ]
     ```
- 
+
+## Docs
+Please see [JSON micro schema docs](https://github.com/vitalets/json-micro-schema) for all available validators.
+
 ## License
 MIT @ [Vitaliy Potapov](https://github.com/vitalets)
